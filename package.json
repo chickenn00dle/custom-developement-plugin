@@ -1,0 +1,38 @@
+{
+	"name": "custom-development-plugin",
+	"version": "1.0.0",
+	"description": "A react based admin for custom development snippets and things.",
+	"private": true,
+	"dependencies": {
+		"@wordpress/components": "^12.0.6",
+		"@wordpress/data": "^4.26.6",
+		"@wordpress/data-controls": "^1.20.6",
+		"@wordpress/i18n": "^3.18.0",
+		"@wordpress/icons": "^2.9.1"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.12.16",
+		"@babel/core": "^7.12.16",
+		"@babel/plugin-proposal-class-properties": "^7.12.13",
+		"@wordpress/babel-preset-default": "^5.0.1",
+		"@wordpress/base-styles": "^3.3.3",
+		"babel-loader": "^8.2.2",
+		"css-loader": "^5.0.2",
+		"mini-css-extract-plugin": "^1.3.6",
+		"path-browserify": "^1.0.1",
+		"process": "^0.11.10",
+		"sass": "^1.32.7",
+		"sass-loader": "^11.0.1",
+		"terser-webpack-plugin": "^5.1.1",
+		"webpack": "^5.21.2",
+		"webpack-cli": "^4.5.0"
+	},
+	"scripts": {
+		"build": "NODE_ENV=production webpack",
+		"build:dev": "webpack",
+		"watch": "webpack --watch"
+	},
+	"keywords": [],
+	"author": "Rasmy Nguyen",
+	"license": "GPL-3.0+"
+}
