@@ -35,6 +35,11 @@ class Custom_Development_Plugin {
 	private static $instance;
 
 	/**
+	 * Constants class.
+	 */
+	public $constants;
+
+	/**
 	 * Instantiate or return existing Singleton instance.
 	 */
 	public static function get_instance() {
@@ -51,6 +56,18 @@ class Custom_Development_Plugin {
 	function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_menu_item' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_plugin' ) );
+		add_action( 'wp_ajax_get_plugin_defined_contants', array( $this, 'get_plugin_defined_constants' ) );
+
+		$this->init();
+	}
+
+	/**
+	 * Load dependencies.
+	 */
+	private function init() {
+		include_once plugin_dir_url( __FILE__, 'includes/class-custom-development-plugin-constants.php' );
+
+		$this->constants = new Custom_Development_Plugin_Constants();
 	}
 
 	/**
