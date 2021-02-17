@@ -1,0 +1,9 @@
+const TYPES = {
+	CREATE: 'CREATE',
+	UPDATE: 'UPDATE',
+	DELETE: 'DELETE',
+	HYDRATE: 'HYDRATE',
+	ERROR: 'ERROR'
+}
+
+export default TYPES;

@@ -48,7 +48,11 @@ module.exports = {
 		alias: {
 			'plugin-settings': path.resolve(
 				__dirname,
-				'client/data/constants.js'
+				'client/data/settings.js'
+			),
+			'plugin-stores': path.resolve(
+				__dirname,
+				'client/data/index.js'
 			),
 		},
 		fallback: {

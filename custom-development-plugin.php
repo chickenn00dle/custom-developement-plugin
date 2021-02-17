@@ -12,6 +12,8 @@
  * @package         Custom_Development_Plugin
  */
 
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Get instance of plugin.
  */
@@ -65,7 +67,7 @@ class Custom_Development_Plugin {
 	 * Load dependencies.
 	 */
 	private function init() {
-		include_once plugin_dir_url( __FILE__, 'includes/class-custom-development-plugin-constants.php' );
+		require_once 'includes/class-custom-development-plugin-constants.php';
 
 		$this->constants = new Custom_Development_Plugin_Constants();
 	}
@@ -96,6 +98,8 @@ class Custom_Development_Plugin {
 			'custom-development-plugin-scripts',
 			'customDevelopmentPlugin',
 			array(
+				'namespace'   => $this->constants->namespace,
+				'rest_base'   => $this->constants->rest_base,
 				'selector'    => '#root',
 				'server_vars' => json_encode( $this->get_server_vars() )
 			)
