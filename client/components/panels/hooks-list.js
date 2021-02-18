@@ -19,6 +19,7 @@ const HooksList = ( { hooks, onClick } ) => {
 					<Flex justify='start'>
 						<FlexItem className='custom-development-plugin-panel__column custom-development-plugin-panel__column--title'>
 							<Button
+								className='custom-development-plugin-panel__column--button'
 								isSmall
 								isTertiary
 								onClick={ () => onClick( id ) }

@@ -6,12 +6,12 @@ class Custom_Development_Plugin_Hooks {
 	/**
 	 * Endpoint namespace.
 	 */
-	public $namespace = '/custom-development-plugin/v1';
+	public $namespace = 'custom-development-plugin/v1';
 
 	/**
 	 * Endpoint route base.
 	 */
-	public $rest_base = '/hooks/';
+	public $rest_base = '/hooks';
 
 	/**
 	 * Constructor.
