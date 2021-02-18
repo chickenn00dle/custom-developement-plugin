@@ -12,65 +12,62 @@ const {
 	ERROR
 } = TYPES;
 
-export function* createConstant( constant ) {
+export function* createHook( hook ) {
 	try {
 		const result = yield apiFetch( {
 			method: 'POST',
 			path: url,
-			data: constant
+			data: hook
 		} );
 
 		yield {
 			type: CREATE,
-			constant
+			hook
 		}
-	} catch {
-		yield setError( 'Error creating constant.' );
+	} catch( { message } ) {
+		yield setError( message );
 	}
 }
 
-export function* updateConstant( constant ) {
+export function* updateHook( hook ) {
 	try {
 		const result = yield apiFetch( {
 			method: 'POST',
 			path: url,
-			data: constant
+			data: hook
 		} );
 
 		yield {
 			type: UPDATE,
-			constant
+			hook
 		}
-	} catch {
-		yield setError( 'Error updating constant.' );
+	} catch( { message } ) {
+		yield setError( message );
 	}
 }
 
-export function* deleteConstant( constantName ) {
+export function* deleteHook( hookID ) {
 	try {
 		const result = yield apiFetch( {
 			method: 'DELETE',
 			path: url,
 			data: {
-				name: constantName,
+				id: hookID,
 			}
 		} );
 
 		yield {
 			type: DELETE,
-			constantName
+			hookID
 		}
-	} catch {
-		yield {
-			type: ERROR,
-			error: 'Error deleting constant.'
-		}
+	} catch( { message } ) {
+		yield setError( message );
 	}
 }
 
-export const hydrateConstants = constants => ( {
+export const hydrateHooks = hooks => ( {
 	type: HYDRATE,
-	constants
+	hooks
 } );
 
 export const setError = error => ( {

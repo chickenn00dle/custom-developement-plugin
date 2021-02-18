@@ -1,2 +1,2 @@
 export { default as ServerPanel } from './server';
-export { default as ConstantsPanel } from './constants';
+export { default as HooksPanel } from './hooks';

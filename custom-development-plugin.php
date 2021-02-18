@@ -37,9 +37,9 @@ class Custom_Development_Plugin {
 	private static $instance;
 
 	/**
-	 * Constants class.
+	 * Hooks class.
 	 */
-	public $constants;
+	public $hooks;
 
 	/**
 	 * Instantiate or return existing Singleton instance.
@@ -58,7 +58,6 @@ class Custom_Development_Plugin {
 	function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_menu_item' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_plugin' ) );
-		add_action( 'wp_ajax_get_plugin_defined_contants', array( $this, 'get_plugin_defined_constants' ) );
 
 		$this->init();
 	}
@@ -67,9 +66,9 @@ class Custom_Development_Plugin {
 	 * Load dependencies.
 	 */
 	private function init() {
-		require_once 'includes/class-custom-development-plugin-constants.php';
+		require_once 'includes/class-custom-development-plugin-hooks.php';
 
-		$this->constants = new Custom_Development_Plugin_Constants();
+		$this->hooks = new Custom_Development_Plugin_Hooks();
 	}
 
 	/**
@@ -98,8 +97,8 @@ class Custom_Development_Plugin {
 			'custom-development-plugin-scripts',
 			'customDevelopmentPlugin',
 			array(
-				'namespace'   => $this->constants->namespace,
-				'rest_base'   => $this->constants->rest_base,
+				'namespace'   => $this->hooks->namespace,
+				'rest_base'   => $this->hooks->rest_base,
 				'selector'    => '#root',
 				'server_vars' => json_encode( $this->get_server_vars() )
 			)
@@ -125,7 +124,7 @@ class Custom_Development_Plugin {
 	 */
 	function output_plugin_html() {
 		$output  = '<div id="root">';
-		$output .= '<p>Custom development plugin requires your browser to run Javascript. Please enable and reload this page.</p>';
+		$output .= '<p style="margin-left:20px;">Custom development plugin requires your browser to run Javascript. Please enable and reload this page.</p>';
 		$output .= '</div>';
 		echo $output;
 	}

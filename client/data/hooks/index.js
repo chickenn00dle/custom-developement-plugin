@@ -5,9 +5,8 @@ import * as resolvers from './resolvers';
 import * as selectors from './selectors';
 import reducer from './reducer';
 
-export const CONSTANT_STORE_KEY = 'data/constants';
-
-export const CONSTANT_STORE_CONFIG = {
+export const HOOK_STORE_KEY = 'data/hooks';
+export const HOOK_STORE_CONFIG = {
 	reducer,
 	actions,
 	selectors,

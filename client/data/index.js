@@ -1,9 +1,9 @@
 import { createReduxStore, register } from '@wordpress/data';
 
-import { CONSTANT_STORE_KEY, CONSTANT_STORE_CONFIG } from './constants';
+import { HOOK_STORE_KEY, HOOK_STORE_CONFIG } from './hooks';
 
-const store = createReduxStore( CONSTANT_STORE_KEY, CONSTANT_STORE_CONFIG );
+const store = createReduxStore( HOOK_STORE_KEY, HOOK_STORE_CONFIG );
 
 register( store );
 
-export { CONSTANT_STORE_KEY };
+export { HOOK_STORE_KEY };

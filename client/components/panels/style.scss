@@ -2,9 +2,40 @@
 	background-color: #f8f8ff;
 	margin-bottom: 1rem;
 
-	.custom-development-plugin-panel__row--form {
-		border-bottom: 1px #cacad0 dotted;
-		padding-bottom: 1rem;
+	.custom-development-plugin-panel__row {
+		padding-top: 1rem;
+
+		&.custom-development-plugin-panel__row--form {
+			border-bottom: 1px #cacad0 dotted;
+			padding-bottom: 1rem;
+		}
+
+		.custom-development-plugin-panel__column {
+			margin-right: 1rem;
+
+			&:last-child {
+				margin-right: 0;
+			}
+
+			&.custom-development-plugin-panel__column--code-block {
+				width: 40rem;
+				padding: 2rem;
+				text-align: center;
+				background-color: #ececec;
+				border-radius: 5px;
+			}
+		}
+	}
+
+	.custom-development-plugin-form__container {
+		.custom-development-plugin-form__input {
+			&.custom-development-plugin-form__input--small {
+				width: 5rem;
+			}
+
+			&.custom-development-plugin-form__input--large {
+				width: 30rem;
+			}
+		}
 	}
 }
-

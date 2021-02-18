@@ -9,31 +9,31 @@ const {
 } = TYPES;
 
 const reducer = (
-	state = { constants: [], error: '' },
-	{ constants: incomingConstants, constant, constantName, error, type }
+	state = { hooks: [], error: null },
+	{ hooks, hook, hookID, error, type }
 ) => {
 	switch( type ) {
 		case CREATE:
 			return {
 				...state,
-				constants: [ ...state.constants, constant ]
+				hooks: [ ...state.hooks, hook ]
 			}
 		case UPDATE:
 			return {
 				...state,
-				constants: state.constants
-					.filter( current => current.name !== constant.name )
-					.concat( [ constant ] )
+				hooks: state.hooks
+					.filter( current => current.id !== hook.id )
+					.concat( [ hook ] )
 			}
 		case DELETE:
 			return {
 				...state,
-				constants: state.constants.filter( current => current.name !== constantName )
+				hooks: state.hooks.filter( current => current.id !== hookID )
 			}
 		case HYDRATE:
 			return {
 				...state,
-				constants: incomingConstants
+				hooks
 			}
 		case ERROR:
 			return {
