@@ -28,6 +28,13 @@ function custom_development_plugin() {
 }
 
 /**
+ * Convenience global log function.
+ */
+function cdp_log( $context, ...$args ) {
+	custom_development_plugin()->logger->log( $context, $args );
+}
+
+/**
  * Main Plugin class.
  */
 class Custom_Development_Plugin {
@@ -40,6 +47,11 @@ class Custom_Development_Plugin {
 	 * Hooks class.
 	 */
 	public $hooks;
+
+	/**
+	 * Hooks class.
+	 */
+	public $logger;
 
 	/**
 	 * Instantiate or return existing Singleton instance.
@@ -67,8 +79,10 @@ class Custom_Development_Plugin {
 	 */
 	private function init() {
 		require_once 'includes/class-custom-development-plugin-hooks.php';
+		require_once 'includes/class-custom-development-plugin-logger.php';
 
-		$this->hooks = new Custom_Development_Plugin_Hooks();
+		$this->hooks  = new Custom_Development_Plugin_Hooks();
+		$this->logger = new Custom_Development_Plugin_Logger();
 	}
 
 	/**
