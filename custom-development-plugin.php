@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:     Custom Development Plugin
- * Plugin URI:      rzmy.win
+ * Plugin URI:      https://github.com/chickenn00dle/custom-developement-plugin
  * Description:     A react admin for custom development snippets and things.
  * Author:          Rasmy Nguyen
  * Author URI:      rzmy.win
