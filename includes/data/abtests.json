@@ -1,0 +1,32 @@
+{
+	"test_abtest_one": {
+		"status": "active",
+		"start": 1611034939,
+		"end": 1616132539,
+		"locale": "en_US",
+		"allocation": {
+			"control": 50,
+			"experiment": 50
+		}
+	},
+	"test_abtest_two": {
+		"status": "active",
+		"start": 1611034939,
+		"end": 1616132539,
+		"locale": "en_US",
+		"allocation": {
+			"control": 50,
+			"experiment": 50
+		}
+	},
+	"test_abtest_three": {
+		"status": "active",
+		"start": 1611034939,
+		"end": 1611034949,
+		"locale": "en_US",
+		"allocation": {
+			"control": 50,
+			"experiment": 50
+		}
+	}
+}

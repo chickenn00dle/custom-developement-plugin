@@ -71,7 +71,14 @@ class Custom_Development_Plugin {
 		add_action( 'admin_menu', array( $this, 'add_menu_item' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'load_plugin' ) );
 
+		$this->define_constants();
 		$this->init();
+	}
+
+	private function define_constants() {
+		if ( ! defined( 'CUSTOM_DEVELOPMENT_PLUGIN_DIR' ) ) {
+			define( 'CUSTOM_DEVELOPMENT_PLUGIN_DIR', plugin_dir_url( __FILE__ ) );
+		}
 	}
 
 	/**
@@ -83,6 +90,10 @@ class Custom_Development_Plugin {
 
 		$this->hooks  = new Custom_Development_Plugin_Hooks();
 		$this->logger = new Custom_Development_Plugin_Logger();
+
+		if ( is_admin() ) {
+			require_once 'includes/class-custom-development-plugin-abtest.php';
+		}
 	}
 
 	/**
@@ -101,8 +112,8 @@ class Custom_Development_Plugin {
 			return;
 		}
 
-		$css_asset = plugin_dir_url( __FILE__ ) . 'dist/main.css';
-		$js_asset  = plugin_dir_url( __FILE__ ) . 'dist/bundle.js';
+		$css_asset = CUSTOM_DEVELOPMENT_PLUGIN_DIR . 'dist/main.css';
+		$js_asset  = CUSTOM_DEVELOPMENT_PLUGIN_DIR . 'dist/bundle.js';
 
 		wp_enqueue_style( 'custom-development-plugin-styles', $css_asset, array( 'wp-components' ) );
 		wp_enqueue_script( 'custom-development-plugin-scripts', $js_asset, array(), 1, true );

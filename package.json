@@ -5,6 +5,7 @@
 	"private": true,
 	"dependencies": {
 		"@wordpress/components": "^12.0.6",
+		"@wordpress/core-data": "^2.25.6",
 		"@wordpress/data": "^4.26.6",
 		"@wordpress/data-controls": "^1.20.6",
 		"@wordpress/element": "^2.19.1",
